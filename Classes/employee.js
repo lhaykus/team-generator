@@ -1,6 +1,5 @@
 //Creating a class for employee using constrictor function 
 
-const { copyFileSync } = require("fs");
 
 class Employee {
     constructor (name, id, email, role) {
