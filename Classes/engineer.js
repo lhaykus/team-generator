@@ -12,13 +12,11 @@ class Engineer extends Employee {
 
     //Function to get github username
     getGithub() {
-        console.log(this.github);
         return `${this.github}`;
     }
 
     //Override getRole to display engineer 
     getRole() {
-        console.log("Engineer");
         return "Engineer";
     }
 }

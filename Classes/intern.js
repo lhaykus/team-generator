@@ -12,13 +12,11 @@ class Intern extends Employee {
 
 //Function to get the school 
     getSchool() {
-        console.log(this.school);
         return `${this.school}`;
     }
 
 //Override role to be Intern
     getRole() {
-        console.log("Intern");
         return "Intern";
     }
 }

@@ -13,13 +13,11 @@ class Manager extends Employee {
 
     //function to get officeNumber
     getOfficeNumber() {
-        console.log(this.officeNumber);
         return `${this.officeNumber}`;
     }
 
 //Override getRole to return Manager not employee
     getRole() {
-        console.log("Manager");
         return "Manager";
     }
 }
