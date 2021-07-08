@@ -2,11 +2,16 @@
 //Creating different files for employee, manager, intern, engineer to create classes and subclasses
 const inquirer = require('inquirer');
 const fs = require('fs');
+const util = require('util');
 const Manager = require("./Classes/manager");
 const Engineer = require("./Classes/engineer");
 const Intern = require("./Classes/intern");
-const Employee = require("./Classes/employee");
+//const Employee = require("./Classes/employee");
 const generateHTML = require("./Classes/generateHTML");
+
+//write file using promises instead of callback function 
+//referenced from mini project for node chapter
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
 //Function to create an HTML, using switch case to choose what to display depending on what role was chosen
@@ -187,7 +192,33 @@ const addEmployeesQuestion = [
 
 //Function to start it all, calls managerprompt function first 
 function init() {
-    promptManager();
+    promptManager()
+
+};
+
+
+//Create function to give user option to add more members or generate team
+//User is asked whether they want to add more members or if they are done
+//If intern is chosen then the intern prompt function will be called
+//If engineer is chosen, the engineer prompt fucntion will be called
+//If done is selected then generateHTML will be called created a webpage
+
+function next() {
+    inquirer.prompt(addEmployeesQuestion).then(function(answers) {
+        console.log(answers);
+
+        switch(answers.role) {
+            case "Intern":
+                promptIntern();
+            case "Engineer":
+                promptEngineer();
+            case 'Done':
+                console.log("team created!");
+                getHTML();
+                
+    };
+});
+
 };
 
 //function to create next employee or generate team depending on what the user chooses from the list
@@ -204,7 +235,7 @@ function promptManager() {
         //pushing managers info into the teamMembers array
         teamMembers.push(manager);
         //call funciton to generate the team
-        makeTeam();
+        next();
     });
 }
 
@@ -215,7 +246,7 @@ function promptIntern() {
         console.log('Intern');
         const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         teamMembers.push(intern);
-        makeTeam();
+        next();
     });
 }
 
@@ -226,43 +257,108 @@ function promptEngineer() {
         console.log('Engineer');
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         teamMembers.push(engineer);
-        makeTeam();
+        next();
     });
 }
 
-//Create function to generate the team 
-//User is asked whether they want to add more members or if they are done
-//If intern is chosen then the intern prompt function will be called
-//If engineer is chosen, the engineer prompt fucntion will be called
-//If done is selected then generateHTML will be called created a webpage
 
-function makeTeam() {
-    inquirer.prompt(addEmployeesQuestion).then(function(answers) {
-        console.log(answers);
-        switch(answers.role) {
-            case "Intern":
-                promptIntern();
-            case "Engineer":
-                promptEngineer();
-            case 'Done':
-                console.log("team created!");
-                generateHTML();
-                return;
-    };
-});
+
+let html= `!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Profile Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron text-center p-5">
+        <h1>Team Profile Generator</h1>
+    </div>
+<!--Cards for the team members info (name, job title, email, github) that will be created with node.js-->
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Name</h5>
+              <p class="card-text">Job title</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">id</li>
+                <li class="list-group-item"><a href="#" class="card-link">email</a></li>
+                <li class="list-group-item"><a href="#" class="card-link">github</a>
+              </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Name</h5>
+              <p class="card-text">Job title</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">id</li>
+                <li class="list-group-item"><a href="#" class="card-link">email</a></li>
+                <li class="list-group-item"><a href="#" class="card-link">github</a>
+              </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Name</h5>
+              <p class="card-text">Job title</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">id</li>
+                <li class="list-group-item"><a href="#" class="card-link">email</a></li>
+                <li class="list-group-item"><a href="#" class="card-link">github</a>
+              </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Name</h5>
+              <p class="card-text">Job title</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">id</li>
+                <li class="list-group-item"><a href="#" class="card-link">email</a></li>
+                <li class="list-group-item"><a href="#" class="card-link">github</a>
+              </ul>
+          </div>
+        </div>
+      </div>
+   
+
+</div>
+
+
+
+
+    
+</body>
+</html>`;
+
 
 //Function for creating cards to add to the HTML contaning the answers from the terminal 
 //Using a for loop to loop through the memebers saved in the teamMembers array and add a card for each member
 function getHTML() {
 
-    for (let i=0; i <teamMembers.length; i++) {
-        const card = generateHTML(teamMembers[i]);
-        html += card;
+    for (let i=0; i < teamMembers.length; i++) {
+        const memberCard = generateHTML(teamMembers[i]);
+        html += memberCard;
     }
 
-    fs.writeFile()
+    writeFileAsync('./example/team.html', html);
 }
 
+init();
 
 
 
@@ -271,5 +367,3 @@ function getHTML() {
 
 
 
-
-}

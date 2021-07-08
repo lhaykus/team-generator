@@ -12,7 +12,7 @@ function generateHTML (answers) {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">${answers.id}</li>
                     <li class="list-group-item"><a href="#" class="card-link">${answers.email}</a></li>
-                    <li class="list-group-item"><a href="#" class="card-link">${answes.officeNumber}</a>
+                    <li class="list-group-item"><a href="#" class="card-link">${answers.officeNumber}</a>
                   </ul>
               </div>
             </div>
@@ -29,7 +29,7 @@ function generateHTML (answers) {
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">${answers.id}</li>
                         <li class="list-group-item"><a href="#" class="card-link">${answers.email}</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">${answes.school}</a>
+                        <li class="list-group-item"><a href="#" class="card-link">${answers.school}</a>
                       </ul>
                   </div>
                 </div>`;
@@ -45,9 +45,11 @@ function generateHTML (answers) {
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">${answers.id}</li>
                             <li class="list-group-item"><a href="#" class="card-link">${answers.email}</a></li>
-                            <li class="list-group-item"><a href="#" class="card-link">${answes.github}</a>
+                            <li class="list-group-item"><a href="#" class="card-link">${answers.github}</a>
                           </ul>
                       </div>
                     </div>`;
     }
 }
+
+module.exports = generateHTML;
