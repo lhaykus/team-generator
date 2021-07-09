@@ -2,10 +2,10 @@
   "name": "teamgenerator",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/lhaykus/team-generator#readme",
   "dependencies": {
     "inquirer": "^8.1.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
