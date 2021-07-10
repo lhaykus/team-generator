@@ -13,7 +13,7 @@ An app that uses Node.js to create an HTML webpage containing information about 
 * In terminal, node app.js will start the process
 * Answer the questions shown on the terminal 
 * When done an HTML will be created and your generated team webpage is ready!
-* To run the tests for the app, npm t
+
 
 
 
@@ -36,5 +36,11 @@ https://drive.google.com/file/d/18rEycyKhBCavxV8tnwYB9SJ8BpC3Kh7F/view?usp=shari
 
 
 # Tests
+* To run the tests for the app, npm t
+
+
 ![testgif](./Assets/testgif.gif)
+
+
+
 ![testscreenshot](./Assets/testscreenshot.png)
