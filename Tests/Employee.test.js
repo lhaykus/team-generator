@@ -9,11 +9,6 @@ test('Get employee object', () => {
 });
 
 
-
-
-
-
-
 //Test to check getName() function
 test("Get name using getName()", () => {
     //Creating a new employee with the name Colby
