@@ -6,7 +6,7 @@ test("Returning engineer using getRole()", () => {
     const testValue = 'Engineer';
     //Creating object of new engineer
     const e = new Engineer("Loryn", 1, "loryn@loryn.com", "github");
-    //Expecting engineer to be returned when getRole() is called
+    //Expecting 'engineer' to be returned when getRole() is called
     expect(e.getRole()).toBe(testValue);
 });
 

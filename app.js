@@ -125,7 +125,7 @@ function init() {
 //User is asked whether they want to add more members or if they are done
 //If intern is chosen then the intern prompt function will be called
 //If engineer is chosen, the engineer prompt fucntion will be called
-//If done is selected then generateHTML will be called created a webpage
+//If done is selected then getHTML will be called created a webpage
 
 function next() {
     inquirer.prompt(addEmployeesQuestion).then(function (answers) {
@@ -149,13 +149,11 @@ function next() {
 
 };
 
-//function to create next employee or generate team depending on what the user chooses from the list
-//using switch case so if 'intern' is chosen, the internprompt function is called, if engineer is chosen engineerprompt function is called and if done is chosen makeTeam function is called
-
 
 //Function to create the manager card
 
 function promptManager() {
+    //Asking the managerQuestions and putting the values of those answers into the HTML 
     inquirer.prompt(managerQuestions).then(function (answers) {
         //  console.log('Manager');
         //
@@ -165,7 +163,7 @@ function promptManager() {
         //call funciton to generate the team
         next();
     });
-}
+};
 
 //Function to create the Intern card
 
@@ -176,7 +174,7 @@ function promptIntern() {
         teamMembers.push(newIntern);
         next();
     });
-}
+};
 
 //function to create the Engineer card
 
@@ -187,10 +185,10 @@ function promptEngineer() {
         teamMembers.push(newEngineer);
         next();
     });
-}
+};
 
 
-
+//Creating the beginning and the end of the HTML 
 let html =
     `<!DOCTYPE html>
 <html lang="en">

@@ -21,12 +21,12 @@ getId() {
     return `${this.id}`;
 }
 
+//function to get the email
 getEmail() {
     return `${this.email}`;
 }
 
 //function getRole 
-
 getRole() {
     return `${this.role}`;
 

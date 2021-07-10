@@ -14,5 +14,6 @@ test('Return manager when using getRole()', () => {
 test('Get office number using getOfficeNumber', () => {
     const testValue = "21";
     const e = new Manager("Loryn", 1, "loryn@loryn.com", testValue);
+    //Expecting 21 to be returned
     expect(e.getOfficeNumber()).toBe(testValue);
 });

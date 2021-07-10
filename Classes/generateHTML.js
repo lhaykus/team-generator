@@ -1,5 +1,7 @@
+//Creating a function to create the cards for the different roles, using switch case to change the content depending what role the users chooses in terminal
 function generateHTML (answers) {
     switch (answers.role) {
+      //Card for the manager questions and answers
         case "Manager":
             return `
             <div class="col">
@@ -16,7 +18,7 @@ function generateHTML (answers) {
               </div>
             </div>
             `;
-            
+            //Card for the intern answers
             case "Intern":
                 return `
                 <div class="col">
@@ -32,7 +34,7 @@ function generateHTML (answers) {
                       </ul>
                   </div>
                 </div>`;
-
+                //Card for the engineer answers
                 case "Engineer":
                     return `
                     <div class="col">

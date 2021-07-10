@@ -21,7 +21,7 @@ test("Get name using getName()", () => {
 
 //Test to check getId() function
 test('Get id using getId()', () => {
-    //Creating a id 
+    //Creating an id 
     const testValue = "21";
     //Making employee equal to name with the testValue
     const e = new Employee("Colby", testValue);
