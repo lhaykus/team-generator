@@ -13,6 +13,7 @@ An app that uses Node.js to create an HTML webpage containing information about 
 * In terminal, node app.js will start the process
 * Answer the questions shown on the terminal 
 * When done an HTML will be created and your generated team webpage is ready!
+* To run the tests for the app, npm t
 
 
 
